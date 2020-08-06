@@ -94,6 +94,8 @@ namespace Zadatak_1.ViewModel
                     if (item.Pasword==Password && item.Username==Username)
                     {
                         MessageBox.Show("Welcome doctor!");
+                        DoctorLogged docLoged = new DoctorLogged(Username);
+                        docLoged.ShowDialog();
                     }
                 }
                 foreach (tblPatient item in patientList)
@@ -101,6 +103,8 @@ namespace Zadatak_1.ViewModel
                     if (item.Pasword == Password && item.Username == Username)
                     {
                         MessageBox.Show("Welcome patient!");
+                        PatientLogged patLoged = new PatientLogged(Username);
+                        patLoged.ShowDialog();
                     }
                 }
                 List<string> usernames = new List<string>();

@@ -93,15 +93,31 @@
     </Compile>
     <Compile Include="RelayCommand.cs" />
     <Compile Include="Tools\Methods.cs" />
+    <Compile Include="ViewModel\AbsenceViewModel.cs" />
     <Compile Include="ViewModel\CreateDoctorViewModel.cs" />
     <Compile Include="ViewModel\CreatePatientViewModel.cs" />
+    <Compile Include="ViewModel\DoctorLoggedViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\PatientLoggedViewModel.cs" />
+    <Compile Include="ViewModel\SelectDoctorViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AbsenceView.xaml.cs">
+      <DependentUpon>AbsenceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CreateDoctor.xaml.cs">
       <DependentUpon>CreateDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\CreatePatient.xaml.cs">
       <DependentUpon>CreatePatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DoctorLogged.xaml.cs">
+      <DependentUpon>DoctorLogged.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientLogged.xaml.cs">
+      <DependentUpon>PatientLogged.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectDoctorView.xaml.cs">
+      <DependentUpon>SelectDoctorView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -115,11 +131,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AbsenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CreateDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\CreatePatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DoctorLogged.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientLogged.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectDoctorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,6 +186,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\password.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

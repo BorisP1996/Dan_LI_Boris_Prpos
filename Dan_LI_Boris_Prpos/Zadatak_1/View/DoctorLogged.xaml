@@ -1,0 +1,68 @@
+﻿<Window x:Class="Zadatak_1.View.DoctorLogged"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.View"
+        mc:Ignorable="d"
+        Title="DoctorLogged" Height="450" Width="800">
+    <Grid>
+        <Grid Height="250"
+              Width="950"
+              Margin="-20,81,-138,88">
+            <DataGrid Name="DataGridUsers"
+                      ItemsSource="{Binding ViewList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding View, UpdateSourceTrigger=PropertyChanged}"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="Black"
+                      BorderBrush="Black"
+                      Foreground="Black"
+                      FontWeight="Bold"
+                      Margin="70,10,175,49">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name"
+                                        Width="100"
+                                        Binding="{Binding Firstname}" />
+                    <DataGridTextColumn Header="Surname"
+                                        Width="100"
+                                        Binding="{Binding Lastname}" />
+                    <DataGridTextColumn Header="JMBG"
+                                        Width="100"
+                                        Binding="{Binding JMBG}" />
+                    <DataGridTextColumn Header="Health number"
+                                        Width="100"
+                                        Binding="{Binding HealthNumber}" />
+                    <DataGridTextColumn Header="Request date"
+                                        Width="100"
+                                        Binding="{Binding RequestDate,StringFormat=\{0:dd-MM-yyyy\}}" />
+                    <DataGridTextColumn Header="Reason"
+                                        Width="100"
+                                        Binding="{Binding Reason}" />
+                    <DataGridTextColumn Header="Company"
+                                        Width="100"
+                                        Binding="{Binding Company}" />
+                    <DataGridTextColumn Header="Urgent"
+                                        Width="100"
+                                        Binding="{Binding Urgent}" />
+                    <DataGridTextColumn Header="Responded"
+                                        Width="100"
+                                        Binding="{Binding Responsed}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Label Content="List of absence requests"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="285,28,0,0"
+               Width="225"
+               FontSize="20" />
+        <Button Content="Close"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"
+                Margin="585,365,0,0"
+                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
+</Window>

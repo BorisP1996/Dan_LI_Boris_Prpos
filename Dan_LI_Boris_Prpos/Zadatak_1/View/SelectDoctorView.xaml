@@ -1,0 +1,36 @@
+﻿<Window x:Class="Zadatak_1.View.SelectDoctorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zadatak_1.View"
+        mc:Ignorable="d"
+        Title="SelectDoctorView" Height="450" Width="800">
+    <Grid>
+        <Button Content="Save"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"
+                Margin="105,345,0,0"
+                Command="{Binding Save,UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Close"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"
+                Margin="275,345,0,0" 
+                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Width="120"
+                  Margin="230,28,0,0"
+                  DisplayMemberPath="Lastname"
+                  SelectedValuePath="Lastname"
+                  ItemsSource="{Binding DoctorList,UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Doctor,UpdateSourceTrigger=PropertyChanged}" />
+        <Label Content="Select doctor"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="105,28,0,0"
+               Width="85" />
+    </Grid>
+</Window>
