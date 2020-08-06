@@ -86,12 +86,46 @@ namespace Zadatak_1.ViewModel
         {
             try
             {
-               
+                List<tblPatient> patientList = context.tblPatients.ToList();
+                List<tblDoctor> doctorsList = context.tblDoctors.ToList();
+
+                foreach (tblDoctor item in doctorsList)
+                {
+                    if (item.Pasword==Password && item.Username==Username)
+                    {
+                        MessageBox.Show("Welcome doctor!");
+                    }
+                }
+                foreach (tblPatient item in patientList)
+                {
+                    if (item.Pasword == Password && item.Username == Username)
+                    {
+                        MessageBox.Show("Welcome patient!");
+                    }
+                }
+                List<string> usernames = new List<string>();
+                List<string> paswords = new List<string>();
+
+                foreach (tblDoctor item in doctorsList)
+                {
+                    usernames.Add(item.Username);
+                    paswords.Add(item.Pasword);
+                }
+                foreach (tblPatient item in patientList)
+                {
+                    usernames.Add(item.Username);
+                    paswords.Add(item.Pasword);
+                    
+                }
+                if (!usernames.Contains(Username) || !paswords.Contains(Password))
+                {
+                    MessageBox.Show("Invalid parametres");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                throw;
+                
             }
         }
          
