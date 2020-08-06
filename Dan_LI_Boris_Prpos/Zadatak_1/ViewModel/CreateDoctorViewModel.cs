@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Zadatak_1.Model;
+using Zadatak_1.Tools;
 using Zadatak_1.View;
 
 namespace Zadatak_1.ViewModel
@@ -14,6 +15,7 @@ namespace Zadatak_1.ViewModel
     {
         CreateDoctor createDoc;
         Entity context = new Entity();
+        Methods method = new Methods();
 
         public CreateDoctorViewModel(CreateDoctor createDocOpen)
         {
@@ -54,10 +56,17 @@ namespace Zadatak_1.ViewModel
                 newDoctor.AccountNumber = Doctor.AccountNumber;
                 newDoctor.Username = Doctor.Username;
                 newDoctor.Pasword = Doctor.Pasword;
-                context.tblDoctors.Add(newDoctor);
-                context.SaveChanges();
-                MessageBox.Show("Doctor is saved");
-                Doctor = new tblDoctor();
+                if (method.ValidateCredentials(newDoctor.Username,newDoctor.Pasword,newDoctor.AccountNumber,newDoctor.JMBG)==true && method.ValiationJMBG(newDoctor.JMBG))
+                {
+                    context.tblDoctors.Add(newDoctor);
+                    context.SaveChanges();
+                    MessageBox.Show("Doctor is saved");
+                    Doctor = new tblDoctor();
+                }
+                else
+                {
+                    MessageBox.Show("Error input\nCheck following:\nUsername must be unique\nPaswword must be unique\n ");
+                }
             }
             catch (Exception ex)
             {
